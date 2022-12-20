@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+/* 全局默认滚动条 */
+html body ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px
+}
+
+html body ::-webkit-scrollbar-thumb {
+  background-color: rgba(40,44,52,.1);
+  border: 3px solid transparent;
+  border-radius: 7px
+}
+
+html body ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(40,44,52,.2)
+}
+
+
+.dotting {
+  display: inline-block;
+  width: 10px;
+  min-height: 2px;
+  padding-right: 2px;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  background-color: currentColor;
+  background-clip: content-box;
+  box-sizing: border-box;
+  animation: dot 3s infinite step-start both;
+}
+
+/* IE8直接显示... */
+.dotting:before {
+  content: '...';
+}
+
+/* IE9+ */
+.dotting::before {
+  content: '';
+}
+
+/* IE9+ */
+:root .dotting {
+  margin-left: 2px;
+  padding-left: 2px;
+}
+
+@keyframes dot {
+  25% {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  50% {
+    border-right-color: transparent;
+    background-color: transparent;
+  }
+
+  75% {
+    border-right-color: transparent;
+  }
+}
