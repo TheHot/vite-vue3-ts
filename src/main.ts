@@ -9,6 +9,10 @@ import 'element-plus/es/components/message/style/css'
 // ElMessageBox CSS
 import 'element-plus/es/components/message-box/style/css'
 
+// vant > showConfirmDialog, showNotify
+import 'vant/es/dialog/style'
+import 'vant/es/notify/style'
+
 import App from './App.vue'
 import router from './router'
 

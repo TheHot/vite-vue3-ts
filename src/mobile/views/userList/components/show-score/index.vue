@@ -1,5 +1,10 @@
 <template>
-  <el-dialog v-model="$props.value" title="学习积分" width="580px">
+  <van-popup
+    class="score-popup flex flex-col justify-around"
+    v-model:show="isShow"
+    position="bottom"
+    :style="{height: '60%'}"
+  >
     <!-- 总分/今日 -->
     <div class="total flex">
       <div class="flex flex-1 justify-center flex-col items-center">
@@ -13,21 +18,22 @@
     </div>
     <!-- 各项得分 -->
     <div class="detail flex" v-for="(item, index) in formatScore(score).dailyList" :key="index">
-      <div class="w-2/6">
+      <div style="width: 8em;">
         {{ `${item.name} (${item.score})` }}
       </div>
       <el-progress
-        class="flex-1"
+        class="flex-auto"
         :text-inside="true"
-        :stroke-width="24"
+        :stroke-width="18"
         :color="colors[index]"
         :percentage="item.percentage !== null ? Math.ceil(item.percentage) : 100"
       />
     </div>
-  </el-dialog>
+  </van-popup>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 
 const colors = [
   '#6a994e',
@@ -41,11 +47,22 @@ const colors = [
 
 interface Props {
   score: string
-  value: boolean
+  modelValue: boolean
 }
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   score: '',
-  value: false
+  modelValue: false
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const isShow = computed({
+  get() {
+    return props.modelValue
+  },
+  set(val) {
+    emit('update:modelValue', val)
+  }
 })
 
 function formatScore(str: string) {
@@ -77,15 +94,19 @@ function formatScore(str: string) {
 }
 </script>
 
+<style lang="postcss">
+.score-popup.van-popup {
+  box-sizing: border-box;
+  padding: 10px 16px;
+}
+</style>
+
 <style lang="postcss" scoped>
+
 .total {
-  margin-bottom: 30px;
   & h1 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
   }
-}
-.detail:not(:last-child) {
-  padding-bottom: 20px;
 }
 </style>

@@ -6,8 +6,8 @@
       :border="true"
       height="100%"
     />
-    <div class="refresh transform duration-700 hover:rotate-90" @click="getlog">
-      <img src="../../assets/refresh.png" alt="">
+    <div class="refresh" @click="getlog">
+      <img src="../../../assets/refresh.png" alt="">
     </div>
   </div>
 </template>
@@ -45,8 +45,8 @@ const cmOptions = {
   height: 50px;
   width: 50px;
   position: absolute;
-  top: 15px;
   right: 15px;
+  bottom: 15px;
   cursor: pointer;
 }
 </style>

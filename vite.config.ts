@@ -1,12 +1,18 @@
+import path, { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver, VantResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   base: '/static/xxqg/build/',
+  build: {
+    outDir: 'build',
+    rollupOptions: {
+      input: resolve(__dirname, 'home.html')
+    }
+  },
   server: {
     proxy: {
       '/api': {
@@ -24,10 +30,10 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver(), VantResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()]
+      resolvers: [ElementPlusResolver(), VantResolver()]
     })
   ]
 })

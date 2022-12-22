@@ -1,0 +1,1 @@
+import{d as o,E as n,c as a,w as s,u as r,o as _,a as c,t as u}from"./home-8ca0f577.js";const i=o({__name:"index",setup(l){return(p,t)=>{const e=n;return _(),a(e,{onClick:t[0]||(t[0]=d=>r(u)())},{default:s(()=>[c(" 切换 ")]),_:1})}}});export{i as default};

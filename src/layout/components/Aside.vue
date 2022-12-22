@@ -1,7 +1,8 @@
 <template>
   <el-scrollbar class="scrollbar-wrapper">
-    <div class="logo flex justify-center">
-      <img src="../../assets/logo.png">
+    <div class="logo flex items-center">
+      <img src="../../assets/vite_logo.png">
+      <span>QG Admin</span>
     </div>
     <el-menu
       active-text-color="#ffd04b"
@@ -101,6 +102,17 @@ function handleRestart() {
   height: 100%;
   background-color: #282c34;
   overflow-x: hidden!important;
+  .logo {
+    height: 60px;
+    padding: 0 20px;
+    & img {
+      width: 42px;
+      padding-right: 4px;
+    }
+    & span {
+      color: #fff;
+    }
+  }
   & .el-menu {
     border: none;
   }

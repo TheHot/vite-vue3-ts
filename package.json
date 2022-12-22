@@ -20,6 +20,7 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.1",
     "qrcode": "^1.5.1",
+    "vant": "^4.0.3",
     "vue": "^3.2.45",
     "vue-router": "^4.0.13"
   },

@@ -1,62 +1,14 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Layout from '../layout/index.vue'
-import Login from '../views/login/index.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { checkToken } from '@/api'
 import { getStorage, setSession } from '@/utils'
-
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    component: Layout,
-    meta: {
-      title: '首页'
-    },
-    redirect: '/userList',
-    children: [
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        meta: {
-          title: '看板'
-        },
-        component: () => import('@/views/dashboard/index.vue')
-      },
-      {
-        path: 'userList',
-        name: 'userList',
-        meta: {
-          title: '强国用户'
-        },
-        component: () => import('@/views/userList/index.vue')
-      },
-      {
-        path: 'config',
-        name: 'config',
-        meta: {
-          title: '配置文件'
-        },
-        component: () => import('@/views/config/index.vue')
-      },
-      {
-        path: 'log',
-        name: 'log',
-        meta: {
-          title: '日志查看'
-        },
-        component: () => import('@/views/log/index.vue')
-      }
-    ]
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  }
-]
+import {
+  routes,
+  routesMobile
+} from './routes'
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes: window.screen.width < 800 ? routesMobile : routes
 })
 
 router.beforeEach(async(to) => {
