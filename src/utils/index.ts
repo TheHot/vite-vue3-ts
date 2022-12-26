@@ -1,7 +1,7 @@
-import { useDark, useToggle } from '@vueuse/core'
+// import { useDark, useToggle } from '@vueuse/core'
 
-export const isDark = useDark()
-export const toggleDark = useToggle(isDark)
+// export const isDark = useDark()
+// export const toggleDark = useToggle(isDark)
 
 export const setStorage = (key: string, data: object) => {
   window.localStorage.setItem(key, JSON.stringify(data))

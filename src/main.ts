@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 // global css
 import './style.css'
 // dark or light
-import 'element-plus/theme-chalk/dark/css-vars.css'
+// import 'element-plus/theme-chalk/dark/css-vars.css'
 
 // ElMessage CSS
 import 'element-plus/es/components/message/style/css'

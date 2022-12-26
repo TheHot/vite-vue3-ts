@@ -11,9 +11,11 @@ export default defineConfig({
     outDir: 'build',
     rollupOptions: {
       input: resolve(__dirname, 'home.html')
-    }
+    },
+    assetsInlineLimit: 200 * 1024
   },
   server: {
+    host: '0.0.0.0',
     proxy: {
       '/api': {
         target: 'http://127.0.0.1',
