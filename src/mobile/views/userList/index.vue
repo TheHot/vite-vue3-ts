@@ -36,7 +36,9 @@
             分数查询
           </van-button>
         </div>
-        <div v-else />
+        <div v-else style="font-size: 12px;color: #ee0a24;">
+          登录状态已过期
+        </div>
         <van-button type="danger" size="mini" @click="delUser(user.uid, user.nick)">
           删除
         </van-button>
@@ -214,6 +216,8 @@ function handleScheme() {
 
 <style lang="postcss" scoped>
 .mobile-user-list-container {
+  height: 100%;
+  box-sizing: border-box;
   & .user-card {
     box-sizing: border-box;
     background-color: #fff;
@@ -237,7 +241,9 @@ function handleScheme() {
       }
     }
 
-    & .footer {}
+    & .footer {
+      align-items: center;
+    }
   }
 }
 .add-user {

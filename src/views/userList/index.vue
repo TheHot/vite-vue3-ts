@@ -18,8 +18,13 @@
       <div class="btn" />
     </div>
     <el-divider />
-    <main>
-      <el-table :data="state.tableData" stripe style="width: 100%">
+    <main style="height: calc(100% - 101px);">
+      <el-table
+        :data="state.tableData"
+        stripe
+        style="width: 100%"
+        height="100%"
+      >
         <el-table-column type="index" width="50" />
         <el-table-column prop="nick" label="昵称" width="180" />
         <el-table-column prop="uid" label="UID" width="180" />

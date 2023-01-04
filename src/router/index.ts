@@ -6,6 +6,12 @@ import {
   routesMobile
 } from './routes'
 
+if (window.screen.width < 800) {
+  document.body.classList.add('mobile-layout')
+} else {
+  document.body.classList.remove('mobile-layout')
+}
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: window.screen.width < 800 ? routesMobile : routes

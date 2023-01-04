@@ -89,7 +89,6 @@ function logout() {
 .mobile-layout-container {
   position: relative;
   height: 100%;
-  background-color: #f0f3f8;
 
   & .nav {
     & .nav-left {
@@ -97,9 +96,11 @@ function logout() {
         margin-right: 10px;
       }
     }
+
     & .nav-right {
       display: flex;
       align-items: center;
+
       & span {
         padding-left: 6px;
         padding-right: 4px;
@@ -108,11 +109,17 @@ function logout() {
   }
 
   & main {
-    left: 0;
-    right: 0;
-    top: 46px;
-    position: absolute;
-    height: calc(100% - 46px);
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 46px;
+    position: relative;
   }
+}
+</style>
+<style lang="postcss">
+body.mobile-layout {
+  height: 100%;
+  overflow: visible;
+  background-color: #f0f3f8;
 }
 </style>

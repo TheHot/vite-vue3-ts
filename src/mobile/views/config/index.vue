@@ -1,5 +1,5 @@
 <template>
-  <div class="config-container h-full">
+  <div class="config-container">
     <div class="editor-container">
       <nav>
         <div class="flex-1 flex items-center">
@@ -61,6 +61,7 @@ async function handleSave() {
 
 <style lang="postcss" scoped>
 .config-container {
+  height: calc(100vh - 46px);
   background-color: #fff;
 
   & .editor-container {
@@ -78,7 +79,7 @@ async function handleSave() {
     }
 
     & .editor {
-      height: calc(100% - 60px);
+      height: calc(100% - 40px);
     }
   }
 }

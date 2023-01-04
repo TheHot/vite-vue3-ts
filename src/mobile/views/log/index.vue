@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" style="height: 100%; overflow: hidden;">
+  <div class="log-container relative">
     <Codemirror
       v-model:value="Log"
       :options="cmOptions"
@@ -41,12 +41,18 @@ const cmOptions = {
 </script>
 
 <style lang="postcss" scoped>
+.log-container {
+  height: calc(100vh - 46px);
+}
 .refresh {
   height: 50px;
   width: 50px;
   position: absolute;
-  right: 15px;
-  bottom: 15px;
+  right: 24px;
+  bottom: 100px;
   cursor: pointer;
+  & img {
+    opacity: .6;
+  }
 }
 </style>
